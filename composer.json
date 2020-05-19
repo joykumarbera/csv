@@ -1,0 +1,23 @@
+{
+    "name": "bera/csv",
+    "description": "a wrapper for dump data into csv format",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joy Kumar Bera",
+            "email": "joykumarbera@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Bera\\Csv\\" : "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "9",
+        "mikey179/vfsstream": "^1.6"
+    }
+}
