@@ -10,15 +10,9 @@ class CsvTest extends TestCase
 
     protected function setUp(): void
     {
-        $this->csv = new Csv (__DIR__, 'test.csv');
+        $this->csv = Csv::Init(__DIR__, 'test.csv');
     }
-
-    public function testIfBadFileNameExceptionisThrown()
-    {
-        $this->expectException(BadFileNameException::class);
-        $this->csv = new Csv(__DIR__, 'test.cs');
-    }
-
+    
     public function testIfHeaderIsNotAnArray()
     {
         $this->expectException(InvalidArgumentException::class);

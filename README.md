@@ -17,7 +17,7 @@ require __DIR__ . DIRECTORY_SEPARATOR . 'vendor/autoload.php';
 
 use Bera\Csv\Csv;
 
-$csv = new Csv(__DIR__ , 'test.csv');
+$csv = Csv::Init(__DIR__ , 'test.csv');
 $csv->addHeader(array('a','b','c'));
 $csv->addData(
     array(

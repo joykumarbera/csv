@@ -7,8 +7,10 @@ use Bera\Csv\Exceptions\BadFileNameException;
 use Bera\Csv\Core\CsvGenerator;
 use Bera\Csv\Core\FileHandler;
 
-class Csv 
+final class Csv 
 {
+    private static $instance;
+
     /**
      * @var array $header
      */
@@ -42,13 +44,30 @@ class Csv
     /**
      * class constructor
      * 
+     * @param string $path
      * @param string $file_name
      */
-    public function __construct($path, $file_name)
+    private function __construct($path, $file_name)
     {
         $this->file_handler = new FileHandler;
         $this->csv_generator = new CsvGenerator;
         $this->setFileName($path, $file_name);
+    }
+
+    /**
+     * instantiate csv class
+     * 
+     * @param string $path
+     * @param string $file_name
+     * 
+     * @return Csv
+     */
+    public static function Init($path, $file_name)
+    {
+        if(is_null(self::$instance))
+            self::$instance = new self($path, $file_name);
+        
+        return self::$instance;
     }
 
     /**
